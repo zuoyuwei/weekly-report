@@ -17,3 +17,6 @@
 ---
 # 1.谷歌访问助手
    [github下载链接]（https://github.com/haotian-wang/google-access-helper）
+---
+# 安装CUDA10.1，cudnn7.6.3.0，Anaconda3.7，tensorflow-gpu==1.14.0
+## 1.安装准备
