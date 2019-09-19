@@ -9,9 +9,11 @@
     然后根目录，/，分配内存
     设置swap分区
     然后/home分配内存
-    ***在Device for boot loader installation选项里，选择刚刚type为biosgrub的设备（刚刚作为reversed bios boot area）的设备号,例如/dev/nvmeOn1p5 ext4,继续安装***
+   ***在Device for boot loader installation选项里，选择刚刚type为biosgrub的设备（刚刚作为reversed bios boot area）的设备号,例如/dev/nvmeOn1p5 ext4,继续安装***
     然后设置用户，密码，完成安装，重启
 ### 6.重启之后依然选用在splash后添加nomodeset,正常启动
 ### 7.NVIDIA显卡驱动安装，开始在官网上根据配置选择430版本驱动进行安装
 ####    [安装教程参考](https://blog.csdn.net/xunan003/article/details/81665835)
-    
+---
+# 1.谷歌访问助手
+   [github下载链接]（https://github.com/haotian-wang/google-access-helper）
