@@ -13,10 +13,5 @@
     然后设置用户，密码，完成安装，重启
 ### 6.重启之后依然选用在splash后添加nomodeset,正常启动
 ### 7.NVIDIA显卡驱动安装，开始在官网上根据配置选择430版本驱动进行安装
-    [安装教程参考](https://blog.csdn.net/xunan003/article/details/81665835)
-    姓名|技能|排行
-    --|:--:|--:
-    刘备|哭|大哥
-    关羽|打|二哥
-    张飞|骂|三弟
+####    [安装教程参考](https://blog.csdn.net/xunan003/article/details/81665835)
     
