@@ -14,9 +14,69 @@
 ### 6.重启之后依然选用在splash后添加nomodeset,正常启动
 ### 7.NVIDIA显卡驱动安装，开始在官网上根据配置选择430版本驱动进行安装
 ####    [安装教程参考](https://blog.csdn.net/xunan003/article/details/81665835)
----
+***
 # 1.谷歌访问助手
    [github下载链接]（https://github.com/haotian-wang/google-access-helper）
----
+***
 # 安装CUDA10.1，cudnn7.6.3.0，Anaconda3.7，tensorflow-gpu==1.14.0
 ## 1.安装准备
+1.1 [下载CUDA10.1 update 2] (https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal)
+1.2 [下载cudnn7.6.3] (https://developer.nvidia.com/rdp/cudnn-download) **注意：将ubuntu系统对应的四个文件全部下载**
+1.3 [下载Anaconda3-2019.07-Linux-x86_64.sh] (https://www.anaconda.com/distribution/)
+1.4 [下载pycharmpycharm-professional-2019.2.2] (http://www.jetbrains.com/pycharm/download/#section=linux)
+1.5 在pycharm中用conda安装[tensorflow-gpu==1.14.0]
+1.6 ***所用配置软件工具包全部备份***
+## 2.安装过程
+### 2.1 cuda安装
+[参照官网命令] (https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal)
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1804-10-1-local-10.1.243-418.87.00_1.0-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804-10-1-local-10.1.243-418.87.00_1.0-1_amd64.deb
+sudo apt-key add /var/cuda-repo-10-1-local-10.1.243-418.87.00/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+
+vi ~/.bashrc
+export PATH="/usr/local/cuda-10.1/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/lcoal/cuda-10.1/lib64:$LD_LIBRARY_PATH"
+source ~/.bashrc
+
+cd /usr/local/cuda-10.1/samples/1_Utilities/deviceQuery
+sudo make
+./deviceQuery
+```
+### 2.2 cudnn安装
+[参照官网命令] (https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)
+- your CUDA directory path is referred to as /usr/local/cuda/
+- your cuDNN download path is referred to as <cudnnpath>
+2.2.1 Installing from a Tar File
+```
+tar -xzvf cudnn-9.0-linux-x64-v7.tgz
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+```
+2.2.2 Installing from a Deb File
+```
+sudo dpkg -i libcudnn7_7.0.3.11-1+cuda9.0_amd64.deb
+sudo dpkg -i libcudnn7-devel_7.0.3.11-1+cuda9.0_amd64.deb
+sudo dpkg -i libcudnn7-doc_7.0.3.11-1+cuda9.0_amd64.deb
+```
+2.2.3 Verifying
+```
+cp -r /usr/src/cudnn_samples_v7/ $HOME
+cd  $HOME/cudnn_samples_v7/mnistCUDNN
+make clean && make
+./mnistCUDNN
+```
+
+### 2.3 Anaconda安装
+**记得添加环境变量**
+### 2.4 Pycharm安装
+**注册码安装**
+### 2.5 tensorflow-gpu
+**conda install tensorflow-gpu==1.14.0**
+
+
